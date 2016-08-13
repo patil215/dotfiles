@@ -1,0 +1,35 @@
+config defaultToCurrentScreen true
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+
+# Abstract positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+bind h:ctrl;alt;cmd ${lefthalf}
+bind l:ctrl;alt;cmd ${righthalf}
+bind k:ctrl;alt;cmd ${full}
+bind j:ctrl;alt;cmd undo
+
+# Fancy window management
+bind p:ctrl;alt;cmd hint ASDFGHJKLQWERTYUIOPZXCVBNM
+
+# Moving windows
+bind y:ctrl;alt;cmd nudge -10% +0
+bind o:ctrl;alt;cmd nudge +10% +0
+bind i:ctrl;alt;cmd nudge +0 -10%
+bind u:ctrl;alt;cmd nudge +0 +10%
+
+# Resizing windows
+bind n:ctrl;alt;cmd resize -10% +0
+bind .:ctrl;alt;cmd resize +10% +0
+bind ,:ctrl;alt;cmd resize +0 -10%
+bind m:ctrl;alt;cmd resize +0 +10%
